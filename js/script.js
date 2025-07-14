@@ -34,3 +34,19 @@ let time = 10;
 //mostro il valore di time all'interno di countdown
 countdownElement.innerText = time;
 
+//creo il countdown nella quale l'user deve memorizzare i numeri
+const countdown = setInterval(() => {
+  time--;
+  countdownElement.innerText = time;
+
+  if (time === 0) {
+    clearInterval(countdown);
+
+
+    //rimuovo e aggiungo le classi d-none
+    form.classList.remove('d-none');
+
+    numbersList.classList.add('d-none');
+    instructions.innerText = `Digita i numeri che ricordi e visualizza il risultato`;
+  }
+}, 1000);
