@@ -50,3 +50,36 @@ const countdown = setInterval(() => {
     instructions.innerText = `Digita i numeri che ricordi e visualizza il risultato`;
   }
 }, 1000);
+
+const confirm = () => {
+
+  //definisco la variabile che mi contiene i numeri inseriti dall'utente
+  const userNumbers = [];
+
+  for (let i = 0; i < inputs.length; i++) {
+    userNumbers.push(parseInt(inputs[i].value));
+  }
+
+  //confronto i 5 numeri random e i 5 numeri dell'utente
+
+  const correctAnswers = [];
+
+  for (let i = 0; i < userNumbers.length; i++) {
+    if (numbers.includes(userNumbers[i])) {
+      correctAnswers.push(userNumbers[i]);
+    }
+  }
+
+  //mostro il messaggio all'utente
+
+  message.classList.remove('text-danger');
+  message.innerText = `Hai indovinato ${correctAnswers.length} (${correctAnswers})`;
+
+}
+
+//assegno al button la funzione confirm
+button.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  confirm();
+});
